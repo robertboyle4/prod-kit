@@ -38,9 +38,9 @@ data:
   # General Settings Values
   ##########################
   #
-  org-id: "959593122435"
-  lz-folder-id: '851676009292'
-  billing-id: "0189FA-E139FD-136A58"
+  org-id: "174163820777"
+  lz-folder-id: '557602532556'
+  billing-id: "01842C-9BD2FD-969741"
   #
   ##########################
   # Management Project
@@ -48,8 +48,8 @@ data:
   #
   # This is the project where the config controller instance is running
   # Values can be viewed in the Project Dashboard
-  management-project-id: robertboyle-playground
-  management-project-number: "831653995426"
+  management-project-id: krm-infra
+  management-project-number: "662617064486"
   management-namespace: config-control
   #
   ##########################
@@ -62,7 +62,7 @@ data:
   # org/org-policies/essentialcontacts-allowed-contact-domains.yaml
   # this setting MUST be changed
   allowed-contact-domains: |
-    - "@robertboyle.joonix.net"
+    - "@ayratk.altostrat.com"
 
   # a list of directory customer IDs from which users can be added to IAM policies, see YAML file for more info:
   # org/org-policies/iam-allowed-policy-member-domains.yaml

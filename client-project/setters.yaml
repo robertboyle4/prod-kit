@@ -39,13 +39,13 @@ data:
   ##########################
   #
   # Billing Account ID to be associated with this project
-  project-billing-id: "0189FA-E139FD-136A58"
+  project-billing-id: "01842C-9BD2FD-969741"
   # GCP folder to use as parent to this project, lowercase K8S resource name
   project-parent-folder: clients.client1.applications
   # user, group or serviceAccount with editor role at project level
   project-editor: "group:team1@example.com"
   # project id for the client project to be created, following rules and conventions
-  project-id: robertboyle-kcc-123456
+  project-id: kcc-infra-app-1
   #
   ##########################
   # End of Configurations
