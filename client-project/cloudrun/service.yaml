@@ -16,10 +16,11 @@ apiVersion: run.cnrm.cloud.google.com/v1beta1
 kind: RunService
 metadata:
   name: runservice-sample
+  namespace: run
 spec:
   ingress: "INGRESS_TRAFFIC_ALL"
   launchStage: "GA"
-  location: "us-central1"
+  location: "northamerica-northeast1"
   projectRef:
     external:  '00000000000' # kpt-set: ${project-id}
   template:

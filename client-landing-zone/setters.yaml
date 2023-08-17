@@ -38,9 +38,9 @@ data:
   ##########################
   #
   # Name for the client, lowercase only
-  client-name: 'client1'
+  client-name: 'robertboyle'
   # group to grant viewer permission on client folder
-  client-folderviewer: 'group:client1@example.com'
+  client-folderviewer: 'group:robert@ayratk.altostrat.com'
   #
   ##########################
   # End of Configurations

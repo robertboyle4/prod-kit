@@ -12,31 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #########
-# Compute API
-apiVersion: serviceusage.cnrm.cloud.google.com/v1beta1
-kind: Service
-metadata:
-  name: project-id-compute # kpt-set: ${project-id}-compute
-  namespace: projects
-  annotations:
-    cnrm.cloud.google.com/deletion-policy: "abandon"
-    cnrm.cloud.google.com/disable-dependent-services: "false"
-    cnrm.cloud.google.com/project-id: project-id # kpt-set: ${project-id}
-spec:
-  resourceID: compute.googleapis.com
----
-# DNS API
-apiVersion: serviceusage.cnrm.cloud.google.com/v1beta1
-kind: Service
-metadata:
-  name: project-id-dns # kpt-set: ${project-id}-dns
-  namespace: projects
-  annotations:
-    cnrm.cloud.google.com/disable-on-destroy: "false"
-    cnrm.cloud.google.com/project-id: project-id # kpt-set: ${project-id}
-spec:
-  resourceID: dns.googleapis.com
----
 # Cloud Run Admin API
 apiVersion: serviceusage.cnrm.cloud.google.com/v1beta1
 kind: Service
