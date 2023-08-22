@@ -2,6 +2,7 @@ apiVersion: vpcaccess.cnrm.cloud.google.com/v1beta1
 kind: VPCAccessConnector
 metadata:
   name: run-vpc-access-connector
+  namespace: networking
 spec:
   location: "northamerica-northeast1" # kpt-set: ${gpc-region}
   machineType: "e2-micro"
@@ -19,6 +20,7 @@ apiVersion: compute.cnrm.cloud.google.com/v1beta1
 kind: ComputeSubnetwork
 metadata:
   name: run-connector-subnet
+  namespace: networking
 spec:
   ipCidrRange: "10.4.0.0/28"
   region: "northamerica-northeast1" # kpt-set: ${gcp-region}

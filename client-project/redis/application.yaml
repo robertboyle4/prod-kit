@@ -16,6 +16,7 @@ apiVersion: redis.cnrm.cloud.google.com/v1beta1
 kind: RedisInstance
 metadata:
   name: redis-instance-1
+  namespace: run
 spec:
   displayName: Sample Redis Instance
   authorizedNetworkRef:

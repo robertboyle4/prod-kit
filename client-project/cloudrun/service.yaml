@@ -16,6 +16,9 @@ apiVersion: run.cnrm.cloud.google.com/v1beta1
 kind: RunService
 metadata:
   name: runservice-sample
+  namespace: run
+  annotations:
+    config.kubernetes.io/depends-on: resourcemanager.cnrm.cloud.google.com/namespaces/networking/VPCAccessConnector/run-vpc-access-connector # kpt-set: resourcemanager.cnrm.cloud.google.com/namespaces/networking/VPCAccessConnector/run-vpc-access-connector
 spec:
   ingress: "INGRESS_TRAFFIC_ALL"
   launchStage: "GA"
@@ -32,7 +35,7 @@ spec:
       maxInstanceCount: 2
     vpcAccess:
       connectorRef:
-        external:  # kpt-set: projects/${project-id}/locations/${gcp-region}/connectors/run-vpc-access-connector
+        name: run-vpc-access-connector
   traffic:
     - percent: 100
       type: "TRAFFIC_TARGET_ALLOCATION_TYPE_LATEST"
