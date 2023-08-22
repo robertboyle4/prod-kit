@@ -1,0 +1,33 @@
+apiVersion: vpcaccess.cnrm.cloud.google.com/v1beta1
+kind: VPCAccessConnector
+metadata:
+  name: run-vpc-access-connector
+spec:
+  location: "northamerica-northeast1" # kpt-set: ${gpc-region}
+  machineType: "e2-micro"
+  minInstances: 2
+  maxInstances: 3
+  subnet:
+    nameRef:
+      name: run-connector-subnet
+    projectRef:
+      external: "000000000000" # kpt-set: projects/${project-id}
+  projectRef:
+    external: "00000000000" # kpt-set: ${project-id}
+---
+apiVersion: compute.cnrm.cloud.google.com/v1beta1
+kind: ComputeSubnetwork
+metadata:
+  name: run-connector-subnet
+spec:
+  ipCidrRange: "10.4.0.0/28"
+  region: "northamerica-northeast1" # kpt-set: ${gcp-region}
+  networkRef:
+    name: vpc-network-1
+---
+apiVersion: compute.cnrm.cloud.google.com/v1beta1
+kind: ComputeNetwork
+metadata:
+  name: vpc-network-1
+spec:
+  autoCreateSubnetworks: false

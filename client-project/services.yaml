@@ -22,4 +22,14 @@ metadata:
     cnrm.cloud.google.com/project-id: project-id # kpt-set: ${project-id}
 spec:
   resourceID: run.googleapis.com
-
+---
+# Managed Redis API
+apiVersion: serviceusage.cnrm.cloud.google.com/v1beta1
+kind: Service
+metadata:
+  name: project-id-run # kpt-set: ${project-id}-redis
+  namespace: projects
+  annotations:
+    cnrm.cloud.google.com/project-id: project-id # kpt-set: ${project-id}
+spec:
+  resourceID: redis.googleapis.com

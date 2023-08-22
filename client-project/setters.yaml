@@ -41,12 +41,15 @@ data:
   # Billing Account ID to be associated with this project
   project-billing-id: "01842C-9BD2FD-969741"
   # GCP folder to use as parent to this project, lowercase K8S resource name
-  project-parent-folder: clients.robert.applications
+  project-parent-folder: clients.robertboyle.applications
   # user, group or serviceAccount with editor role at project level
   project-editor: "group:robert@ayratk.altostrat.com"
   # project id for the client project to be created, following rules and conventions
   project-id: kcc-infra-app-6
-  #
+  # GCP region to deploy project resources
+  gcp-region: "northamerica-northeast1"
+  # image to run in Cloud Run
+  app-image: "gcr.io/robertboyle-playground/hello-redis:bab2e1b341089aa27c28ee8c2196b8868aeb9e5b"
   ##########################
   # End of Configurations
   ##########################

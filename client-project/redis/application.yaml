@@ -15,11 +15,11 @@
 apiVersion: redis.cnrm.cloud.google.com/v1beta1
 kind: RedisInstance
 metadata:
-  labels:
-    label-one: "value-one"
-  name: redisinstance-sample
+  name: redis-instance-1
 spec:
   displayName: Sample Redis Instance
-  region: us-central1
+  authorizedNetworkRef:
+    external: "..." # kpt-set: projects/${project-id}/locations/${gcp-region}/networks/vpc-network-1
+  region: northamerica-northeast1 # kpt-set: ${gcp-region}
   tier: BASIC
-  memorySizeGb: 16
+  memorySizeGb: 1
