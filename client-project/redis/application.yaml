@@ -17,10 +17,12 @@ kind: RedisInstance
 metadata:
   name: redis-instance-1
   namespace: run
+  annotations:
+    cnrm.cloud.google.com/project-id: project-id # kpt-set: ${project-id}
 spec:
   displayName: Sample Redis Instance
   authorizedNetworkRef:
-    external: "..." # kpt-set: projects/${project-id}/locations/${gcp-region}/networks/vpc-network-1
+    external: "..." # kpt-set: projects/${project-id}/locations/${gcp-region}/networks/${project-id}-vpc-network-1
   region: northamerica-northeast1 # kpt-set: ${gcp-region}
   tier: BASIC
   memorySizeGb: 1

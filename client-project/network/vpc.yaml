@@ -10,7 +10,7 @@ spec:
   maxInstances: 3
   subnet:
     nameRef:
-      name: run-connector-subnet
+      name: project-id-vpc-subnetwork-1 # kpt-set: ${project-id}-vpc-subnetwork-1
     projectRef:
       external: "000000000000" # kpt-set: projects/${project-id}
   projectRef:
@@ -19,17 +19,22 @@ spec:
 apiVersion: compute.cnrm.cloud.google.com/v1beta1
 kind: ComputeSubnetwork
 metadata:
-  name: run-connector-subnet
+  name: project-id-vpc-subnetwork-1 # kpt-set: ${project-id}-vpc-subnetwork-1
   namespace: networking
+  annotations:
+    cnrm.cloud.google.com/project-id: project-id # kpt-set: ${project-id}
 spec:
   ipCidrRange: "10.4.0.0/28"
   region: "northamerica-northeast1" # kpt-set: ${gcp-region}
   networkRef:
-    name: vpc-network-1
+    name: project-id-vpc-network-1 # kpt-set: ${project-id}-vpc-network-1
 ---
 apiVersion: compute.cnrm.cloud.google.com/v1beta1
 kind: ComputeNetwork
 metadata:
-  name: vpc-network-1
+  name: project-id-vpc-network-1 # kpt-set: ${project-id}-vpc-network-1
+  namespace: networking
+  annotations:
+    cnrm.cloud.google.com/project-id: project-id # kpt-set: ${project-id}
 spec:
   autoCreateSubnetworks: false
