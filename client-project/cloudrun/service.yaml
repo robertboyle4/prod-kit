@@ -42,6 +42,7 @@ apiVersion: iam.cnrm.cloud.google.com/v1beta1
 kind: IAMPartialPolicy
 metadata:
   name: allow-all-users
+  namespace: run
 spec:
   resourceRef:
     name: runservice-sample
