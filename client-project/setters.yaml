@@ -49,7 +49,9 @@ data:
   # GCP region to deploy project resources
   gcp-region: "northamerica-northeast1"
   # image to run in Cloud Run
-  app-image: "gcr.io/robertboyle-playground/hello-redis:bab2e1b341089aa27c28ee8c2196b8868aeb9e5b"
+  app-image: "gcr.io/robertboyle-playground/hello-redis:c802edf2c1388fd470c7fe2da29cbe28c7bd49d8"
+  # IP address of Redis
+  redis_ip: ""
   ##########################
   # End of Configurations
   ##########################

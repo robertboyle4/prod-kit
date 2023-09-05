@@ -26,8 +26,8 @@ spec:
   template:
     containers:
       - env:
-          - name: "FOO"
-            value: "bar"
+          - name: "REDIS_IP"
+            value: "" # kpt-set: ${redis_ip}
         image: "..." # kpt-set: ${app-image}
     scaling:
       maxInstanceCount: 2

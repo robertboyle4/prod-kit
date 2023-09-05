@@ -42,6 +42,40 @@ spec:
   role: roles/run.admin
   member: "serviceAccount:run-sa@management-project-id.iam.gserviceaccount.com" # kpt-set: serviceAccount:run-sa@${management-project-id}.iam.gserviceaccount.com
 ---
+# Grant GCP role Service Account User to GCP SA
+apiVersion: iam.cnrm.cloud.google.com/v1beta1
+kind: IAMPolicyMember
+metadata:
+  name: run-sa-service-account-user
+  namespace: config-control # kpt-set: ${management-namespace}
+  annotations:
+    cnrm.cloud.google.com/project-id: management-project-id # kpt-set: ${management-project-id}
+    cnrm.cloud.google.com/ignore-clusterless: "true"
+spec:
+  resourceRef:
+    apiVersion: resourcemanager.cnrm.cloud.google.com/v1beta1
+    kind: Folder
+    external: "123456789012" # kpt-set: ${lz-folder-id}
+  role: roles/iam.serviceAccountUser
+  member: "serviceAccount:run-sa@management-project-id.iam.gserviceaccount.com" # kpt-set: serviceAccount:run-sa@${management-project-id}.iam.gserviceaccount.com
+---
+# Grant GCP role Owner to GCP SA
+apiVersion: iam.cnrm.cloud.google.com/v1beta1
+kind: IAMPolicyMember
+metadata:
+  name: run-sa-owner
+  namespace: config-control # kpt-set: ${management-namespace}
+  annotations:
+    cnrm.cloud.google.com/project-id: management-project-id # kpt-set: ${management-project-id}
+    cnrm.cloud.google.com/ignore-clusterless: "true"
+spec:
+  resourceRef:
+    apiVersion: resourcemanager.cnrm.cloud.google.com/v1beta1
+    kind: Folder
+    external: "123456789012" # kpt-set: ${lz-folder-id}
+  role: roles/owner
+  member: "serviceAccount:run-sa@management-project-id.iam.gserviceaccount.com" # kpt-set: serviceAccount:run-sa@${management-project-id}.iam.gserviceaccount.com
+---
 # Grant Redis Memorystore Admin to GCP SA
 apiVersion: iam.cnrm.cloud.google.com/v1beta1
 kind: IAMPolicyMember
@@ -58,6 +92,23 @@ spec:
     external: "123456789012" # kpt-set: ${lz-folder-id}
   role: roles/redis.admin
   member: "serviceAccount:run-sa@management-project-id.iam.gserviceaccount.com" # kpt-set: serviceAccount:run-sa@${management-project-id}.iam.gserviceaccount.com
+---
+  # Grant Compute Admin to GCP SA
+  apiVersion: iam.cnrm.cloud.google.com/v1beta1
+  kind: IAMPolicyMember
+  metadata:
+    name: run-sa-compute-admin
+    namespace: config-control # kpt-set: ${management-namespace}
+    annotations:
+      cnrm.cloud.google.com/project-id: management-project-id # kpt-set: ${management-project-id}
+      cnrm.cloud.google.com/ignore-clusterless: "true"
+  spec:
+    resourceRef:
+      apiVersion: resourcemanager.cnrm.cloud.google.com/v1beta1
+      kind: Folder
+      external: "123456789012" # kpt-set: ${lz-folder-id}
+    role: roles/compute.admin
+    member: "serviceAccount:run-sa@management-project-id.iam.gserviceaccount.com" # kpt-set: serviceAccount:run-sa@${management-project-id}.iam.gserviceaccount.com
 ---
 # Grant VPC Access User to GCP SA
 apiVersion: iam.cnrm.cloud.google.com/v1beta1
